@@ -1,17 +1,19 @@
-const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
-const themeToggle = document.querySelector(".theme-toggle");
+const themeToggles = document.querySelectorAll(".theme-toggle");
 const year = document.querySelector("#year");
 const siteIntro = document.querySelector("#site-intro");
 
 const applyTheme = (theme) => {
   document.documentElement.dataset.theme = theme;
 
-  if (themeToggle) {
+  for (const themeToggle of themeToggles) {
     const isDark = theme === "dark";
     themeToggle.setAttribute("aria-pressed", String(isDark));
     themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
-    themeToggle.querySelector("span").textContent = isDark ? "☀" : "◐";
+    const icon = themeToggle.querySelector("span");
+    if (icon) {
+      icon.textContent = isDark ? "☀" : "◐";
+    }
   }
 };
 
@@ -29,26 +31,58 @@ try {
 
 applyTheme(savedTheme);
 
-if (menuToggle && siteNav) {
-  menuToggle.addEventListener("click", () => {
-    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-    menuToggle.setAttribute("aria-expanded", String(!isOpen));
-    menuToggle.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
-    siteNav.classList.toggle("is-open", !isOpen);
-  });
-
+if (siteNav) {
   siteNav.addEventListener("click", (event) => {
-    if (event.target.closest("a")) {
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation");
-      siteNav.classList.remove("is-open");
+    const link = event.target.closest("a[href^='#']");
+    if (link) {
+      for (const navLink of siteNav.querySelectorAll("a[href^='#']")) {
+        navLink.removeAttribute("aria-current");
+      }
+      link.setAttribute("aria-current", "location");
     }
   });
 }
 
-if (themeToggle) {
+if (siteNav && "IntersectionObserver" in window) {
+  const sectionLinks = [...siteNav.querySelectorAll("a[href^='#']")];
+  const sections = sectionLinks
+    .map((link) => ({
+      link,
+      section: document.querySelector(link.hash),
+    }))
+    .filter(({ section }) => section);
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    const visibleSections = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((first, second) => second.intersectionRatio - first.intersectionRatio);
+    const activeSection = visibleSections[0]?.target;
+
+    if (!activeSection) {
+      return;
+    }
+
+    for (const { link, section } of sections) {
+      if (section === activeSection) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    }
+  }, {
+    rootMargin: "-20% 0px -65% 0px",
+    threshold: [0, 0.25, 0.5, 0.75, 1],
+  });
+
+  for (const { section } of sections) {
+    sectionObserver.observe(section);
+  }
+}
+
+for (const themeToggle of themeToggles) {
   themeToggle.addEventListener("click", () => {
-    const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    const currentTheme = document.documentElement.dataset.theme;
+    const nextTheme = currentTheme === "dark" ? "light" : "dark";
     applyTheme(nextTheme);
 
     try {
@@ -78,10 +112,10 @@ if (siteIntro) {
   const updateIntro = (now) => {
     const elapsed = now - startTime;
     const completion = minimumDuration === 0 ? 1 : Math.min(elapsed / minimumDuration, 1);
-    progress.textContent = String(Math.min(Math.floor(completion * 92), 92)).padStart(2, "0");
+    progress.style.transform = `scaleX(${Math.min(completion * 0.92, 0.92)})`;
 
     if ((pageLoaded && completion === 1) || elapsed >= maximumDuration) {
-      progress.textContent = "100";
+      progress.style.transform = "scaleX(1)";
       siteIntro.classList.add("is-exiting");
       document.body.classList.remove("intro-loading");
       window.setTimeout(() => {
