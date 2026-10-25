@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="View and download the resume of an aspiring web developer and final-year BCA student." />
+    <meta name="theme-color" content="#f7f8f8" />
+    <title>Resume — Mohammed Faizaan Shariff</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body class="resume-page">
+    <div class="site-intro" id="site-intro" role="status" aria-live="polite" aria-label="Loading resume" hidden>
+      <div class="intro-topline">
+        <span>PERSONAL PORTFOLIO <i aria-hidden="true">/</i> 2026</span>
+        <span class="intro-counter" aria-hidden="true"><span class="intro-progress">00</span>%</span>
+      </div>
+      <div class="intro-center">
+        <div class="intro-lockup">
+          <span class="intro-mark" aria-hidden="true">
+            <img src="profile-photo.png" alt="" />
+            <i>✳</i>
+          </span>
+          <div class="intro-title-wrap">
+            <p class="intro-greeting">MOHAMMED FAIZAAN</p>
+            <p class="intro-title">My <span>resume.</span></p>
+            <p class="intro-subtitle">CURRICULUM VITAE <i aria-hidden="true">✳</i> WEB DEVELOPMENT</p>
+          </div>
+        </div>
+      </div>
+      <div class="intro-bottomline">
+        <span>DESIGN <i aria-hidden="true">/</i> CODE <i aria-hidden="true">/</i> LEARN</span>
+        <span class="intro-track" aria-hidden="true"><span></span></span>
+      </div>
+    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Mohammed Faizaan Shariff, home">
+        <span class="brand-mark"><img src="profile-photo.png" alt="" /></span>
+        <span class="brand-name">Mohammed Faizaan<span class="brand-period">.</span></span>
+      </a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Open navigation"
+      >
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="index.html#about">About</a>
+        <a href="index.html#work">Projects</a>
+        <a href="index.html#journey">Journey</a>
+        <a href="resume.html" aria-current="page">Resume</a>
+        <a class="nav-contact" href="index.html#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="resume-main section-shell" id="main">
+      <div class="resume-heading">
+        <div>
+          <a class="resume-back" href="index.html">← Back to portfolio</a>
+          <p class="eyebrow">CURRICULUM VITAE</p>
+          <h1>My <span>resume.</span></h1>
+          <p class="resume-description">View my resume below, or download a copy.</p>
+        </div>
+        <a class="button button-primary resume-download" href="resume.pdf" download>
+          Download PDF <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+
+      <div class="resume-viewer">
+        <iframe
+          src="resume.pdf#view=FitH"
+          title="Your Name's resume"
+          loading="lazy"
+        ></iframe>
+        <p class="resume-fallback">
+          If the preview doesn’t appear in your browser,
+          <a href="resume.pdf" target="_blank" rel="noreferrer">open the resume PDF</a>
+          or use the download button above.
+        </p>
+      </div>
+    </main>
+
+    <footer class="site-footer section-shell">
+      <a class="brand footer-brand" href="index.html" aria-label="Mohammed Faizaan Shariff, home">
+        <span class="brand-mark"><img src="profile-photo.png" alt="" /></span>
+      </a>
+      <p>Made with curiosity &amp; a little bit of code.</p>
+      <a class="back-top" href="#main">BACK TO TOP ↑</a>
+      <p class="copyright">© <span id="year"></span> Mohammed Faizaan Shariff</p>
+      <div class="footer-socials">
+        <a href="https://github.com/Faizaan-git" target="_blank" rel="noreferrer">GITHUB ↗</a>
+        <a href="https://www.linkedin.com/in/mohammed-faizaan-shariff-80ab7b421" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
+      </div>
+    </footer>
+  </body>
+</html>
