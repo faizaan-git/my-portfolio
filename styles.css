@@ -180,12 +180,21 @@ main,
 }
 
 .site-header .brand-mark {
-  border-radius: 9px;
+  border-radius: 50%;
 }
 
 .site-header .brand-logo {
   object-position: center;
-  border-radius: 0;
+  border-radius: 50%;
+}
+
+.footer-brand .brand-mark {
+  border-radius: 50%;
+}
+
+.footer-brand .brand-logo {
+  object-position: center;
+  border-radius: 50%;
 }
 
 .brand-mark {
@@ -264,7 +273,7 @@ main,
   display: flex;
   min-height: min(720px, calc(100vh - 76px));
   align-items: center;
-  padding-block: 74px 94px;
+  padding-block: 34px 94px;
 }
 
 .hero-main {
@@ -278,79 +287,79 @@ main,
 .profile-art {
   position: relative;
   display: grid;
-  width: min(100%, 300px);
+  width: min(100%, 340px);
   aspect-ratio: 1;
   margin-inline: auto;
+  transform: translateY(-12px);
   place-items: center;
 }
 
-.profile-orbit {
-  position: absolute;
+.profile-window {
+  width: 88%;
+  padding: 0 7px 7px;
   border: 1px solid var(--line);
-  border-radius: 50%;
-}
-
-.orbit-outer {
-  inset: 0;
-  border-style: dashed;
-  animation: orbit 45s linear infinite;
-}
-
-.orbit-inner {
-  inset: 9%;
-  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
-}
-
-@keyframes orbit {
-  to { transform: rotate(360deg); }
-}
-
-.profile-monogram {
-  position: relative;
-  display: grid;
-  width: 55%;
-  aspect-ratio: 1;
-  border: 1px solid var(--line);
-  border-radius: 50%;
+  border-radius: 9px;
+  overflow: hidden;
   background: var(--surface);
-  box-shadow: 0 18px 55px #252b3512;
-  color: var(--ink);
-  font-family: var(--display);
-  font-size: clamp(53px, 8vw, 78px);
-  font-weight: 800;
-  letter-spacing: -0.12em;
-  place-items: center;
+  box-shadow: 0 18px 55px #252b3518;
 }
 
-.profile-monogram > img {
+.profile-window-bar {
+  display: flex;
+  height: 31px;
+  align-items: center;
+  gap: 10px;
+  padding-inline: 3px;
+}
+
+.profile-window-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.profile-window-dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.profile-window-dots i:first-child {
+  background: #f27b72;
+}
+
+.profile-window-dots i:nth-child(2) {
+  background: #e9bd4c;
+}
+
+.profile-window-dots i:last-child {
+  background: #63bd77;
+}
+
+.profile-window-file {
+  flex: 1;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+}
+
+.profile-window-language {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.06em;
+}
+
+.profile-window > img {
+  display: block;
   width: 100%;
-  height: 100%;
-  border-radius: inherit;
+  aspect-ratio: 1;
+  border-radius: 5px;
   object-fit: cover;
   object-position: center 32%;
 }
 
-.profile-monogram > span {
-  transform: translateX(-4px);
-}
-
-.profile-monogram i {
-  position: absolute;
-  top: 10%;
-  right: 2%;
-  display: grid;
-  width: 31px;
-  height: 31px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: white;
-  font-size: 16px;
-  font-style: normal;
-  place-items: center;
-}
-
-.profile-caption,
-.profile-coordinate {
+.profile-caption {
   position: absolute;
   color: var(--muted);
   font-family: var(--mono);
@@ -362,12 +371,6 @@ main,
 .profile-caption {
   bottom: 2%;
   left: 0;
-}
-
-.profile-coordinate {
-  top: 8%;
-  right: 0;
-  color: var(--accent);
 }
 
 .eyebrow {
@@ -1074,7 +1077,7 @@ h2 {
 
   .hero {
     min-height: auto;
-    padding-block: 52px 76px;
+    padding-block: 28px 76px;
   }
 
   .hero-main {
@@ -1083,11 +1086,8 @@ h2 {
   }
 
   .profile-art {
-    width: min(58vw, 218px);
-  }
-
-  .profile-monogram {
-    font-size: clamp(47px, 13vw, 66px);
+    width: min(72vw, 260px);
+    transform: translateY(-6px);
   }
 
   .hero-copy {
@@ -1229,7 +1229,7 @@ h2 {
   }
 
   .hero {
-    padding-top: 40px;
+    padding-top: 20px;
   }
 
   .site-header {

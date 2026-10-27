@@ -8,7 +8,7 @@
       content="Mohammed Faizaan Shariff is a final-year BCA student and aspiring web developer. Explore his projects, skills, and resume."
     />
     <meta name="theme-color" content="#f7f8f8" />
-    <title>Mohammed Faizaan Shariff — Web Developer</title>
+    <title>Mohammed Faizaan Shariff</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,15 +51,16 @@
     <main id="main">
       <section class="hero section-shell" id="home" aria-labelledby="hero-title">
         <div class="hero-main">
-          <div class="profile-art" aria-label="MF monogram illustration">
-            <div class="profile-orbit orbit-outer"></div>
-            <div class="profile-orbit orbit-inner"></div>
-            <div class="profile-monogram">
+          <div class="profile-art" aria-label="Profile photo displayed in a code editor frame">
+            <div class="profile-window">
+              <div class="profile-window-bar" aria-hidden="true">
+                <span class="profile-window-dots"><i></i><i></i><i></i></span>
+                <span class="profile-window-file">profile.tsx</span>
+                <span class="profile-window-language">TSX</span>
+              </div>
               <img src="profile-photo.png" alt="Mohammed Faizaan Shariff" />
-              <i aria-hidden="true">✳</i>
             </div>
             <span class="profile-caption">WEB DEVELOPER<br />IN THE MAKING</span>
-            <span class="profile-coordinate" aria-hidden="true">01 — 26</span>
           </div>
 
           <div class="hero-copy">
@@ -226,7 +227,7 @@
 
     <footer class="site-footer section-shell">
       <a class="brand footer-brand" href="#home" aria-label="Mohammed Faizaan Shariff, home">
-        <span class="brand-mark"><img src="profile-photo.png" alt="" /></span>
+        <span class="brand-mark"><img class="brand-logo" src="logo.svg" alt="" /></span>
       </a>
       <p>Made with curiosity &amp; a little bit of code.</p>
       <a class="back-top" href="#home">BACK TO TOP ↑</a>
