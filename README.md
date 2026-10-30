@@ -41,7 +41,7 @@ git clone YOUR_GITHUB_REPOSITORY_URL
 Navigate to the project directory:
 
 ```bash
-cd faizaan
+cd FOLDER_NAME
 ```
 
 Install dependencies:
@@ -70,7 +70,6 @@ This portfolio is deployed using **Vercel** and connected to GitHub for version 
 
 - **Portfolio:** https://mdfaizaan.vercel.app/
 - **GitHub:** https://github.com/faizaan-git
-- **LinkedIn:** Add your LinkedIn profile URL here.
 
 ## 🎯 Purpose
 
