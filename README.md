@@ -35,7 +35,7 @@ Visit the live website:
 Clone the repository:
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/faizaan-git/my-portfolio.git
 ```
 
 Navigate to the project directory:
